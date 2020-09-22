@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head id="main-header">
+   <title>My Website</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <style>
+   table,
+   th,
+   td {
+      border: 1px solid black;
+      border-collapse: collapse;
+   }
+   
+   th,
+   td {
+      padding: 5px;
+   }
+   
+   th {
+      text-align: left;
+   }
+   </style>
+</head>
+
+<body>
+         <center><h2><p class="wavy">Wellcome to AhmedulHadi Website</p></center></h2>
+   <header id="navbar">
+      <nav>
+         <div class="container">
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="about.html">About</a></li>
+               <li><a href="services.html">Services</a></li>
+               <li><a href="donate.html">Donate</a></li>
+               <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+
+
+   <div style = "padding-left: 80px; padding-right: 80px; padding-top: 20px; left:80px; margin-top:-20px;">
+   <p>"Whoever builds a masjid for the sake of Allah, Allah builds for him a mansion in Jannah" (Al-Hadith, Sahih Bukhari). Please donate generously.</p>
+   
+        <center><div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'black',
+          layout: 'vertical',
+          label: 'pay',
+          
+      },
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: '1'
+                  }
+              }]
+          });
+      },
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+      }
+  }).render('#paypal-button-container');
+</script></center>
+</div>
+   <footer id="main-footer">
+      <p>Copyright &copy; 2020 My Website</p>
+   </footer>
+</body>
+
+</html>
